@@ -4,11 +4,45 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
+	 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet"
           href="{% static 'website/style.css' %}">
 </head>
 <body>
-    {% block content %}
-    {% endblock %}
+ <div class="row">
+    <div class="sidebar col-lg-2 col-md-3">
+        
+		<img src="{% static 'website/calendar.png' %}" width="100px">
+        <div>
+         <a href="{% url 'welcome' %}">Home</a>
+        </div>
+        <div>
+           <a href="{% url 'new' %}">New Meeting</a>
+        </div>
+        <div>                    
+            <a href="{% url 'rooms' %}">Rooms</a>                 
+        </div>
+        <div>
+            <a href="{% url 'about' %}">About</a>
+        </div> 
+               
+        {% block nav %}
+        {% endblock %}
+    </div>
+    <div class="main col-lg-10 col-md-9">
+	<h1>Welcome to the Meeting Planner!</h1>
+    <p>
+        This is the demo application for the course
+        <em>Django: Getting Started</em>
+        on <a href="https://www.pluralsight.com">
+        Pluralsight</a>.
+    </p>
+        {% block content %}
+	    {% endblock %}
+    </div>
+ </div>  
 </body>
 </html>
+
+
+        
